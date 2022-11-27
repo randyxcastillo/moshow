@@ -14,11 +14,11 @@ const TheRoutes = () => {
                 element={<Catalog/>}>
             </Route>
             <Route
-                exact path='/:category/:id'
+                exact path='/:category/details/:id'
                 element={<Detail/>}>
             </Route>
             <Route
-                exact path='/:category'
+                exact path='/:category/:type'
                 element={<Catalog/>}>
             </Route>
             <Route

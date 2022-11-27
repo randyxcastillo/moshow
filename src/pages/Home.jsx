@@ -15,7 +15,7 @@ const Home = () => {
                 <div className="section mb-3">
                     <div className="section__header mb-2">
                         <h2>Trending Movies</h2>
-                        <Link to="/movie">
+                        <Link to="/movie/popular">
                             <OutlineButton className="small">View more</OutlineButton>
                         </Link>
                     </div>
@@ -25,7 +25,7 @@ const Home = () => {
                 <div className="section mb-3">
                     <div className="section__header mb-2">
                         <h2>Top Rated Movies</h2>
-                        <Link to="/movie">
+                        <Link to="/movie/top_rated">
                             <OutlineButton className="small">View more</OutlineButton>
                         </Link>
                     </div>
@@ -34,22 +34,22 @@ const Home = () => {
 
                 <div className="section mb-3">
                     <div className="section__header mb-2">
-                        <h2>Trending Shows</h2>
-                        <Link to="/shows">
+                        <h2>Trending TV</h2>
+                        <Link to="/tv/popular">
                             <OutlineButton className="small">View more</OutlineButton>
                         </Link>
                     </div>
-                    <MovieList category={category.show} type={tvType.popular}/>
+                    <MovieList category={category.tv} type={tvType.popular}/>
                 </div>
 
                 <div className="section mb-3">
                     <div className="section__header mb-2">
-                        <h2>Top Rated Shows</h2>
-                        <Link to="/shows">
+                        <h2>Top Rated TV</h2>
+                        <Link to="/tv/top_rated">
                             <OutlineButton className="small">View more</OutlineButton>
                         </Link>
                     </div>
-                    <MovieList category={category.show} type={tvType.top_rated}/>
+                    <MovieList category={category.tv} type={tvType.top_rated}/>
                 </div>
             </div>
         </>
