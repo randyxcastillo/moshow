@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+
 import Button, { OutlineButton } from '../button/Button';
 import Modal, { ModalContent } from '../modal/Modal';
 
@@ -42,9 +43,10 @@ const HeroSlide = () => {
                 spaceBetween={30}
                 centeredSlides={true}
                 autoplay={{
-                  delay: 2500,
+                  delay: 3500,
                   disableOnInteraction: false,
                 }}
+                speed = {1500}
                 pagination={{
                   clickable: true,
                 }}
