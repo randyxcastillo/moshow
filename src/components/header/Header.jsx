@@ -17,7 +17,7 @@ const headerNav = [
     },
     {
         display: 'Shows',
-        path: '/shows/popular'
+        path: '/tv/popular'
     }
 ];
 

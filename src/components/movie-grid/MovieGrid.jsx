@@ -21,11 +21,10 @@ const MovieGrid = props => {
     useEffect(() => {
         const getList = async () => {
             let response = null;
-            try {
-                if (keyword === undefined) {
-                    const params = {};
-                    switch(props.category) {
-                        case category.movie:
+            if (keyword === undefined) {
+                const params = {};
+                switch(props.category) {
+                    case category.movie:
                             if(props.type === 'popular') {
                                 response = await tmdbApi.getMoviesList(movieType.popular, {params});
                             } else {
@@ -38,33 +37,27 @@ const MovieGrid = props => {
                             } else {
                                 response = await tmdbApi.getTvList(tvType.top_rated, {params});
                             }
-                    }
-                } else {
-                    const params = {
-                        query: keyword
-                    }
-                    response = await tmdbApi.search(props.category, {params});
                 }
-                setItems(response.results);
-                setTotalPage(response.total_pages);
-            } catch (e) {
-                console.log('Error: ', e);
+            } else {
+                const params = {
+                    query: keyword
+                }
+                response = await tmdbApi.search(props.category, {params});
             }
+            setItems(response.results);
+            setTotalPage(response.total_pages);
         }
         getList();
-        // eslint-disable-next-line
     }, [props.category, keyword]);
 
     const loadMore = async () => {
         let response = null;
-        try {
-            if (keyword === undefined) {
-                const params = {
-                    page: page + 1,
-                    query: keyword
-                }
-                switch(props.category) {
-                    case category.movie:
+        if (keyword === undefined) {
+            const params = {
+                page: page + 1
+            };
+            switch(props.category) {
+                case category.movie:
                         if(props.type === 'popular') {
                             response = await tmdbApi.getMoviesList(movieType.popular, {params});
                         } else {
@@ -78,18 +71,15 @@ const MovieGrid = props => {
                             response = await tmdbApi.getTvList(tvType.top_rated, {params});
                         }
                 }
-            } else {
-                const params = {
-                    page: page + 1,
-                    query: keyword
-                }
-                response = await tmdbApi.search(props.category, {params});
+        } else {
+            const params = {
+                page: page + 1,
+                query: keyword
             }
-            setItems([...items, ...response.results]);
-            setPage(page + 1);
-        } catch (e) {
-            console.log('Error: ', e);
+            response = await tmdbApi.search(props.category, {params});
         }
+        setItems([...items, ...response.results]);
+        setPage(page + 1);
     }
 
     return (

@@ -1,7 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import SwiperCore, { Autoplay } from 'swiper';
+import SwiperCore from 'swiper';
+import { Autoplay, Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 import Button, { OutlineButton } from '../button/Button';
 import Modal, { ModalContent } from '../modal/Modal';
@@ -34,10 +39,18 @@ const HeroSlide = () => {
     return (
         <div className="hero-slide">
             <Swiper
-                modules={[Autoplay]}
-                grabCursor={true}
-                spaceBetween={0}
-                slidesPerView={1}
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false,
+                }}
+                pagination={{
+                  clickable: true,
+                }}
+                navigation={true}
+                modules={[Autoplay, Pagination, Navigation]}
+                className="mySwiper"
             >
                 {
                     movieItems.map((item, i) => (
@@ -80,6 +93,7 @@ const HeroSlideItem = props => {
     }
 
     return (
+        
         <div
             className={`hero-slide__item ${props.className}`}
             style={{backgroundImage: `url(${background})`}}
