@@ -105,7 +105,7 @@ const HeroSlideItem = props => {
                     <h2 className="title">{item.title}</h2>
                     <div className="overview">{item.overview}</div>
                     <div className="btns">
-                        <Button onClick={() => navigate('/movie/' + item.id)}>
+                        <Button onClick={() => navigate('/movie/' + 'details/' + item.id)}>
                             View details
                         </Button>
                         <OutlineButton onClick={setModalActive}>
